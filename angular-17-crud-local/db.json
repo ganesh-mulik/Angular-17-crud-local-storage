@@ -1,0 +1,22 @@
+{
+    "userList":[
+        {"userid":1,"fName":"Ganesh","LName":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"mh","zipCode":123},
+        {"userid":2,"fName":"Anup","LName":"Gondage","username":"Anup-Gondage","city":"pune","state":"mh","zipCode":123},
+        {"userid":3,"fName":"Saurabh","LName":"Gaikwad","username":"Saurabh-Gaikwad","city":"pune","state":"mh","zipCode":123}
+    ],
+    "cityList":["pune","mumbai","delhi","banaglore","chennai"],
+    "stateList":["Mh","Pun","Goa"],
+    "createUser":{
+        "result":true,
+        "data":{"userid":1,"fName":"Ganesh","LName":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"mh","zipCode":123}
+    },
+    "updateUser":{
+        "result":true,
+        "data":{"userid":1,"fName":"Ganesh","LName":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"mh","zipCode":123}
+    },
+    "deleteUser":{
+        "result":true,
+        "data":{"userid":1,"fName":"Ganesh","LName":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"mh","zipCode":123}
+    }
+    
+}
