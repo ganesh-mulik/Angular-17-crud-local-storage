@@ -1,0 +1,29 @@
+{
+    "userList":[
+        {"userid":1,"fname":"Ganesh","lname":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"Maharashtra","zipcode":123},
+        {"userid":2,"fname":"Anup","lname":"Gondage","username":"Anup-Gondage","city":"mumbai","state":"Goa","zipcode":567},
+        {"userid":3,"fname":"Saurabh","lname":"Gaikwad","username":"Saurabh-Gaikwad","city":"banglore","state":"Karnataka","zipcode":890}
+    ],
+    "cityList":[
+        {"name":"pune"},
+        {"name":"mumbai"},
+        {"name":"delhi"},
+        {"name":"banglore"}
+    ],
+    "stateList":[
+        {"name":"Maharashtra"},
+        {"name":"Goa"},
+        {"name":"Karnataka"},
+        {"name":"Haryana"}
+    ],
+    "createUser":{
+        "userid":1,"fName":"Ganesh","LName":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"mh","zipCode":123
+    },
+    "updateUser":{
+        "userid":1,"fName":"Ganesh","LName":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"mh","zipCode":123
+    },
+    "deleteUser":{
+        "userid":1,"fName":"Ganesh","LName":"Mulik","username":"Ganesh-Mulik","city":"pune","state":"mh","zipCode":123
+    }
+    
+}
