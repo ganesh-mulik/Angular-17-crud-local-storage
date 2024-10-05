@@ -5,20 +5,52 @@
                 <div class="card-header bg-success">
                     <div class="row">
                         <div class="col-6 text-white">User List</div>
-                        <div class="col-6 text-end"><button class="btn btn-primary btn-sm">Add New</button></div>
+                        <div class="col-6 text-end"><button class="btn btn-primary btn-sm" (click)="showForm(1)">Add New</button></div>
                     </div>
                 </div>
                 <div class="card-body">
-                    
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>      
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Zipcode</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        @for (item of userList; track item) {
+                          <tr>
+                          <td scope="row">{{$index+1}}</td>            
+                          <td>{{item.fname}}</td>
+                          <td>{{item.lname}}</td>
+                          <td>{{item.username}}</td>
+                          <td>{{item.city}}</td>
+                          <td>{{item.state}}</td>
+                          <td>{{item.zipcode}}</td>
+                          <td>
+                            <button class="btn btn-primary btn-sm" (click)="onUpdate(item)">Update</button>
+                            <button class="btn btn-danger btn-sm" (click)="onDeleteUser(item.userId)">Delete</button>
+                          </td>
+                          </tr>                     
+                      }                                                                 
+                    </tbody>
+                  </table>                    
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card">
+        @if(disableForm){
+          <div class="col-4">
+            <div class="card displayform">
                 <div class="card-header bg-success">
                     <div class="row">
                         <div class="col-6 text-white">New User</div>
-                        <div class="col-6 text-end"><button class="btn btn-primary btn-sm">Close</button></div>
+                        <div class="col-6 text-end"><button class="btn btn-primary btn-sm" (click)="showForm(0)">Close</button></div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -40,46 +72,51 @@
                         <div class="col-md-4">
                           <label for="validationCustomUsername" class="form-label">Username</label>
                           <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend"></span>
+                            <!-- <span class="input-group-text" id="inputGroupPrepend"></span> -->
                             <input type="text" name="username" [(ngModel)]="userObj.username" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                             <div class="invalid-feedback">
                               Please choose a username.
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <label for="validationCustom03" class="form-label">City</label>
-                          <select name="city" [(ngModel)]="userObj.city" class="form-control"class="form-select" id="validationCustom04" required>
+                        <div class="col-md-5">
+                          <label for="validationCustom04" class="form-label">City</label>
+                          <select name="city" [(ngModel)]="userObj.city" class="form-control" class="form-select" id="validationCustom04" required>
                             <option selected disabled value="">Choose...</option>
-                            <option>...</option>
+                            @for (item of cityList$ |async; track item) {
+                              <option>{{item.name}}</option>
+                            }
                           </select>
                           <div class="invalid-feedback">
                             Please provide a valid city.
                           </div>
                         </div>
-                        <div class="col-md-3">
-                          <label for="validationCustom04" class="form-label">State</label>
-                          <select name="state" [(ngModel)]="userObj.state" class="form-control" id="validationCustom04" required>
+                        <div class="col-md-4">
+                          <label for="validationCustom05" class="form-label">State</label>
+                          <select name="state" [(ngModel)]="userObj.state" class="form-control" class="form-select" id="validationCustom05" required>
                             <option selected disabled value="">Choose...</option>
-                            <option>...</option>
+                            @for (item of stateList$ |async; track item) {
+                              <option>{{item.name}}</option>
+                            }
                           </select>
                           <div class="invalid-feedback">
                             Please select a valid state.
                           </div>
                         </div>
                         <div class="col-md-3">
-                          <label for="validationCustom05" class="form-label">Zip Code</label>
-                          <input type="text" name="zipcode" [(ngModel)]="userObj.zipcode" class="form-control" id="validationCustom05" required>
+                          <label for="validationCustom06" class="form-label">Zip Code</label>
+                          <input type="text" name="zipcode" [(ngModel)]="userObj.zipcode" class="form-control" id="validationCustom06" required>
                           <div class="invalid-feedback">
                             Please provide a valid zip.
                           </div>
-                        </div>                        
-                        <div class="col-12">
-                          <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>        
+                        <div class="col-12 text-center">
+                          <button class="btn btn-primary" type="button" (click)="onSaveUser()">Submit</button>
                         </div>
                       </form>
                 </div>
             </div>
         </div>
+        }
     </div>
 </div>
